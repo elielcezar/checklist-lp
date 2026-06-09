@@ -92,6 +92,15 @@
       body.appendChild(ul);
     });
 
+    /* Imagem ilustrativa (cover) da categoria */
+    if (cat.cover) {
+      var cover = el("img", "cat__cover");
+      cover.src = cat.cover;
+      cover.alt = "Dica do Assaí — " + cat.name;
+      cover.loading = "lazy";
+      body.appendChild(cover);
+    }
+
     /* Downloads */
     var hint = el("p", "cat__hint", "Selecione os produtos acima para montar a sua lista.");
     body.appendChild(hint);
@@ -307,35 +316,10 @@
       .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40);
   }
 
-  /* ---------- responsivo: escala do título estilizado (623x313) ---------- */
-  var TITLE_W = 623, TITLE_H = 313;
-  function fitHeroTitle() {
-    var title = document.querySelector(".hero__title");
-    var stage = document.querySelector(".stage");
-    if (!title || !stage) return;
-    var isMobile = window.matchMedia("(max-width: 1299px)").matches;
-    if (!isMobile) {
-      title.style.transform = "";
-      title.style.height = "";
-      return;
-    }
-    var avail = Math.min(stage.clientWidth - 32, TITLE_W);
-    var scale = Math.max(0.1, avail / TITLE_W);
-    title.style.transform = "scale(" + scale + ")";
-    title.style.height = TITLE_H * scale + "px";
-  }
-
-  var rt;
-  window.addEventListener("resize", function () {
-    clearTimeout(rt);
-    rt = setTimeout(fitHeroTitle, 120);
-  });
-
   /* ---------- bootstrap ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     var root = document.getElementById("categories");
     if (!root || typeof CATEGORIES === "undefined") return;
     CATEGORIES.forEach(function (cat) { root.appendChild(renderCategory(cat)); });
-    fitHeroTitle();
   });
 })();

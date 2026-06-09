@@ -4,6 +4,7 @@ const CATEGORIES = [
     "id": "mini",
     "name": "MINI MERCADOS, MERCEARIAS E EMPÓRIOS",
     "image": "assets/img/cat-mini-mercados.png",
+    "cover": "assets/img/cover-minimercado.jpg",
     "sections": [
       {
         "subtitle": "Bebidas, Gelos e Destilados",
@@ -96,6 +97,7 @@ const CATEGORIES = [
     "id": "bares",
     "name": "BARES, BOTECOS, RESTAURANTES E ESPETARIAS",
     "image": "assets/img/cat-bares.png",
+    "cover": "assets/img/cover-bares.jpg",
     "sections": [
       {
         "subtitle": "Proteínas, Embutidos e Petiscos de Estufa",
@@ -188,6 +190,7 @@ const CATEGORIES = [
     "id": "confeiteiros",
     "name": "CONFEITEIROS, DOCEIROS E BOLEIROS",
     "image": "assets/img/cat-confeiteiros.png",
+    "cover": "assets/img/cover-confeiteiros.jpg",
     "sections": [
       {
         "subtitle": "Laticínios e Insumos Base",
@@ -285,6 +288,7 @@ const CATEGORIES = [
     "id": "pizzarias",
     "name": "PIZZARIAS (MESA, BALCÃO E DELIVERY)",
     "image": "assets/img/cat-pizzarias.png",
+    "cover": "assets/img/cover-pizzarias.jpg",
     "sections": [
       {
         "subtitle": "Queijos, Embutidos e Coberturas",
@@ -367,6 +371,7 @@ const CATEGORIES = [
     "id": "vendedores",
     "name": "VENDEDORES AMBULANTES",
     "image": "assets/img/cat-vendedores.png",
+    "cover": "assets/img/cover-ambulantes.jpg",
     "sections": [
       {
         "subtitle": "Bebidas Práticas para Caixa Térmica / Isopor",
@@ -454,6 +459,7 @@ const CATEGORIES = [
     "id": "padarias",
     "name": "PADARIAS E PANIFICADORAS",
     "image": "assets/img/cat-padarias.png",
+    "cover": "assets/img/cover-padarias.jpg",
     "sections": [
       {
         "subtitle": "Panificação e Insumos de Cozinha",
