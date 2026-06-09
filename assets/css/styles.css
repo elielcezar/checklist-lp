@@ -1,0 +1,532 @@
+/* ============================================================
+   Checklist LP Assaí — Guia Prático do Comerciante Campeão
+   Valores extraídos do Figma (fidelidade desktop a 1300px)
+   ============================================================ */
+
+/* ---- Fonte da marca FS Lola ----
+   Fonte comercial do Assaí. Coloque os arquivos em assets/fonts/.
+   Enquanto não estiverem presentes, o fallback (Montserrat) é usado. */
+@font-face {
+  font-family: "FS Lola";
+  src: url("../fonts/FSLola-ExtraBold.woff2") format("woff2"),
+       url("../fonts/FSLola-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "FS Lola";
+  src: url("../fonts/FSLola-Bold.woff2") format("woff2"),
+       url("../fonts/FSLola-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "FS Lola";
+  src: url("../fonts/FSLola-Medium.woff2") format("woff2"),
+       url("../fonts/FSLola-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --blue-bg: #003ca8;       /* fundo da página */
+  --blue-deep: #00215d;     /* banner */
+  --blue-tip: #003799;      /* caixa de dica */
+  --blue-brand: #0b0195;    /* sombras / nome categoria */
+  --yellow: #ffde00;
+  --yellow-shadow: #ffd100;
+  --green: #00e039;
+  --orange: #ea5b0c;        /* barras de subcategoria / botões */
+  --display: "FS Lola", "Montserrat", "Arial Black", sans-serif;
+  --body: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--blue-bg);
+  font-family: var(--body);
+  color: #fff;
+}
+
+/* Grandes anéis concêntricos do fundo (não-fixo p/ performance) */
+.stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-radial-gradient(circle at 50% 6%,
+    rgba(255,255,255,0.04) 0px,
+    rgba(255,255,255,0.04) 2px,
+    transparent 3px,
+    transparent 132px);
+  z-index: 0;
+}
+.stage > * { position: relative; z-index: 1; }
+
+.stage {
+  position: relative;
+  width: 1300px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  width: 1300px;
+  height: 2192px;
+}
+
+.hero__logo {
+  position: absolute;
+  left: 555px;
+  top: 21px;
+  width: 190px;
+  height: 190px;
+}
+
+.hero__banner {
+  position: absolute;
+  left: 80px;
+  top: 211px;
+  width: 1140px;
+  height: auto;
+  border-radius: 43px;
+}
+
+.hero__warning {
+  position: absolute;
+  left: 129px;
+  top: 650px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 520px;
+}
+.hero__warning img { width: 35px; height: 35px; flex: 0 0 35px; }
+.hero__warning span {
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.15;
+  color: #fff;
+}
+
+/* ---- Título estilizado ---- */
+.hero__title {
+  position: absolute;
+  left: 296px;
+  top: 697px;
+  width: 623px;
+  height: 313px;
+}
+.ht {
+  position: absolute;
+  display: inline-block;
+  transform: rotate(-4.88deg);
+  transform-origin: left center;
+  font-family: var(--display);
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+.ht--guia        { left: 62px;  top: 18px;  font-size: 90px; text-shadow: -9px 5px 0 var(--yellow-shadow), -6px 3px 0 var(--blue-brand); }
+.ht--pratico     { left: 155px; top: 77px;  font-size: 90px; text-shadow: -9px 5px 0 var(--yellow-shadow), -6px 3px 0 var(--blue-brand); }
+.ht--do          { left: 0;     top: 199px; font-size: 40px; text-shadow: -9px 5px 0 var(--green), -6px 3px 0 var(--blue-brand); }
+.ht--comerciante { left: 71px;  top: 164px; font-size: 80px; text-shadow: -9px 5px 0 var(--green), -6px 3px 0 var(--blue-brand); }
+.ht--campeao     { left: 244px; top: 224px; font-size: 80px; text-shadow: -9px 5px 0 var(--yellow-shadow), -6px 3px 0 var(--blue-brand); }
+
+.hero__subtitle {
+  position: absolute;
+  left: 205px;
+  top: 1120px;
+  width: 873px;
+  margin: 0;
+  text-align: center;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 55px;
+  color: var(--yellow);
+}
+
+/* ---- Passos ---- */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.step { display: contents; }
+.step__num {
+  position: absolute;
+  left: 264px;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 65px;
+  color: var(--yellow);
+}
+.step__text {
+  position: absolute;
+  left: 385px;
+  width: 710px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 64px;
+  color: #fff;
+}
+.step--1 .step__num { top: 1408px; }
+.step--1 .step__text { top: 1375px; line-height: 65px; }
+.step--2 .step__num { top: 1579px; }
+.step--2 .step__text { top: 1568px; line-height: 86px; }
+.step--3 .step__num { top: 1767px; }
+.step--3 .step__text { top: 1717px; line-height: 64px; }
+.step--4 .step__num { top: 1951px; }
+.step--4 .step__text { top: 1919px; line-height: 64px; }
+
+/* ============ CATEGORIAS ============ */
+.categories { position: relative; }
+
+.cat { position: relative; margin-bottom: 60px; }
+
+.cat__header {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 519px;        /* reserva o espaço do botão que ultrapassa o header */
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+.cat__img {
+  display: block;
+  width: 1300px;
+  height: auto;
+}
+
+/* Botão Expandir / Retraír */
+.cat__toggle {
+  position: absolute;
+  left: 380px;
+  top: 390px;
+  width: 472px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  background: var(--orange);
+  border-radius: 18px;
+  color: #fff;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 44px;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.18);
+}
+.cat__toggle svg { width: 43px; height: 27px; transition: transform .25s ease; }
+.cat__header[aria-expanded="true"] .cat__toggle svg { transform: rotate(180deg); }
+
+/* Corpo expansível */
+.cat__body {
+  width: 966px;
+  margin: 0 auto;
+  padding: 10px 0 40px;
+}
+.cat__body[hidden] { display: none; }
+
+.subbar {
+  display: flex;
+  align-items: center;
+  width: 904px;
+  min-height: 57px;
+  padding: 8px 28px;
+  background: var(--orange);
+  border-radius: 8px;
+  color: #fff;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 32px;
+  margin: 28px 0 18px;
+}
+
+.items { list-style: none; margin: 0; padding: 0; }
+
+.item { width: 904px; margin: 0 0 26px; }
+.item__row { display: flex; gap: 29px; align-items: flex-start; }
+
+.item__check {
+  flex: 0 0 71px;
+  width: 71px;
+  height: 71px;
+  border-radius: 17px;
+  background: #fff;
+  border: 3px solid #fff;
+  cursor: pointer;
+  position: relative;
+  transition: background .15s ease, border-color .15s ease;
+}
+.item__check::after {
+  content: "";
+  position: absolute;
+  left: 30%;
+  top: 12%;
+  width: 28%;
+  height: 54%;
+  border: solid var(--green);
+  border-width: 0 clamp(4px, 1.1vw, 8px) clamp(4px, 1.1vw, 8px) 0;
+  transform: rotate(45deg);
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.item.is-checked .item__check { background: #e9fff0; border-color: var(--green); }
+.item.is-checked .item__check::after { opacity: 1; }
+
+.item__text { flex: 1; min-width: 0; }
+.item__title {
+  margin: 0;
+  font-family: var(--body);
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1.05;
+  color: #fff;
+}
+.item__title .light { font-weight: 200; }
+.item__desc {
+  margin: 8px 0 0;
+  font-family: var(--body);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.07;
+  color: #fff;
+}
+.item__tip {
+  margin: 14px 0 0;
+  width: 100%;
+  background: var(--blue-tip);
+  border-radius: 19px;
+  padding: 14px 28px;
+  font-family: var(--body);
+  font-weight: 800;
+  font-size: 29px;
+  line-height: 1.1;
+  color: #fff;
+}
+
+/* Botões de download */
+.downloads {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-top: 40px;
+}
+.btn-download {
+  width: 472px;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: var(--orange);
+  border: 0;
+  border-radius: 18px;
+  color: #fff;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 40px;
+  cursor: pointer;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.18);
+}
+.btn-download:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
+.btn-download svg { width: 34px; height: 34px; }
+
+.cat__hint {
+  text-align: center;
+  font-family: var(--body);
+  font-size: 24px;
+  color: var(--yellow);
+  margin: 24px 0 0;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0 80px;
+}
+.footer__logo { width: 190px; height: 190px; }
+
+/* ============================================================
+   RESPONSIVO — abaixo de 1300px o layout fluido/reflui.
+   Desktop (>=1300px) mantém a fidelidade exata do Figma.
+   ============================================================ */
+html { -webkit-text-size-adjust: 100%; }
+
+@media (max-width: 1299px) {
+  body { overflow-x: hidden; }
+  .stage { width: 100%; overflow-x: hidden; }
+
+  /* ---------- HERO em fluxo vertical ---------- */
+  .hero {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(16px, 3.5vw, 34px);
+    padding: clamp(18px, 4vw, 40px) 16px clamp(8px, 2vw, 20px);
+  }
+  .hero__logo {
+    position: static;
+    left: auto; top: auto;
+    width: clamp(104px, 16vw, 190px);
+    height: auto;
+  }
+  .hero__banner {
+    position: static;
+    left: auto; top: auto;
+    width: 100%;
+    max-width: 1140px;
+    border-radius: clamp(16px, 3vw, 43px);
+  }
+  .hero__warning {
+    position: static;
+    left: auto; top: auto;
+    width: 100%;
+    max-width: 640px;
+    justify-content: center;
+    gap: 10px;
+  }
+  .hero__warning img { width: clamp(22px, 4vw, 35px); height: auto; flex-basis: auto; }
+  .hero__warning span { font-size: clamp(11px, 2.7vw, 18px); }
+
+  /* Título estilizado: bloco de 623x313 escalado por JS (--title-scale) */
+  .hero__title {
+    position: relative;       /* mantém o contexto dos textos absolutos */
+    left: auto; top: auto;
+    transform-origin: top center;
+    margin: 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .hero__subtitle {
+    position: static;
+    left: auto; top: auto;
+    width: 100%;
+    max-width: 880px;
+    padding: 0 8px;
+    font-size: clamp(26px, 6.4vw, 64px);
+    line-height: 1.08;
+  }
+
+  /* ---------- Passos em fluxo ---------- */
+  .steps {
+    position: static;
+    width: 100%;
+    max-width: 660px;
+    padding: 0 6px;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(16px, 4vw, 30px);
+  }
+  .step { display: flex; align-items: center; gap: clamp(12px, 3vw, 24px); }
+  .step__num,
+  .step__text {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto;
+  }
+  .step__num {
+    font-size: clamp(40px, 11vw, 96px);
+    line-height: 1;
+    flex: 0 0 auto;
+    min-width: 1.1em;
+    text-align: center;
+  }
+  .step__text {
+    font-size: clamp(24px, 6vw, 64px);
+    line-height: 1.06 !important;
+  }
+
+  /* ---------- Categorias fluidas ---------- */
+  .cat { margin-bottom: clamp(18px, 4vw, 60px); }
+  .cat__header {
+    min-height: 0;
+    padding-bottom: clamp(24px, 6vw, 60px);
+  }
+  .cat__img { width: 100%; }
+
+  .cat__toggle {
+    left: 50%;
+    top: auto;
+    bottom: clamp(2px, 1vw, 14px);
+    transform: translateX(-50%);
+    width: clamp(180px, 42%, 472px);
+    height: auto;
+    padding: clamp(8px, 1.8vw, 22px) 0;
+    gap: clamp(8px, 1.6vw, 22px);
+    font-size: clamp(18px, 4.4vw, 44px);
+    border-radius: clamp(10px, 1.6vw, 18px);
+  }
+  .cat__toggle svg { width: clamp(18px, 3.4vw, 43px); height: auto; }
+
+  .cat__body {
+    width: 100%;
+    max-width: 1000px;
+    padding: clamp(20px, 5vw, 40px) 16px clamp(24px, 6vw, 40px);
+  }
+  .subbar {
+    width: 100%;
+    min-height: 0;
+    padding: clamp(8px, 2vw, 12px) clamp(14px, 3vw, 28px);
+    font-size: clamp(18px, 4.4vw, 32px);
+    margin: clamp(18px, 4vw, 28px) 0 clamp(12px, 3vw, 18px);
+  }
+  .item { width: 100%; margin-bottom: clamp(16px, 4vw, 26px); }
+  .item__row { gap: clamp(12px, 3vw, 29px); }
+  .item__check {
+    flex-basis: clamp(42px, 9vw, 71px);
+    width: clamp(42px, 9vw, 71px);
+    height: clamp(42px, 9vw, 71px);
+    border-radius: clamp(10px, 2vw, 17px);
+  }
+  .item__title { font-size: clamp(18px, 4.6vw, 40px); }
+  .item__desc { font-size: clamp(14px, 3.6vw, 30px); margin-top: clamp(4px, 1vw, 8px); }
+  .item__tip {
+    font-size: clamp(14px, 3.6vw, 29px);
+    padding: clamp(10px, 2.5vw, 14px) clamp(14px, 3vw, 28px);
+    border-radius: clamp(12px, 2vw, 19px);
+    margin-top: clamp(10px, 2.4vw, 14px);
+  }
+  .cat__hint { font-size: clamp(14px, 3vw, 24px); }
+
+  .downloads {
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(12px, 3vw, 18px);
+    margin-top: clamp(24px, 5vw, 40px);
+  }
+  .btn-download {
+    width: min(472px, 100%);
+    height: auto;
+    padding: clamp(12px, 3vw, 22px) 0;
+    font-size: clamp(18px, 4.4vw, 40px);
+    border-radius: clamp(10px, 1.6vw, 18px);
+  }
+  .btn-download svg { width: clamp(20px, 4vw, 34px); height: auto; }
+
+  /* ---------- Footer ---------- */
+  .footer { padding: clamp(24px, 5vw, 40px) 0 clamp(40px, 8vw, 80px); }
+  .footer__logo { width: clamp(110px, 18vw, 190px); height: auto; }
+}
