@@ -123,7 +123,7 @@
       var open = header.getAttribute("aria-expanded") === "true";
       header.setAttribute("aria-expanded", String(!open));
       body.hidden = open;
-      toggle.querySelector("span").textContent = open ? "Expandir" : "Retraír";
+      toggle.querySelector("span").textContent = open ? "Expandir" : "Retrair";
     });
 
     body.addEventListener("click", function (ev) {

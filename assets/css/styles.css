@@ -100,6 +100,10 @@ html, body {
   border-radius: 43px;
 }
 
+.hero__banner-mob {
+  display: none;
+}
+
 /* ---- Título estilizado ---- */
 @media(orientation: landscape){
   .hero__title {
@@ -107,7 +111,7 @@ html, body {
     left: 296px;
     top: 697px;
     width: 623px;
-    height: 313px;
+    height: 313px;    
   }
 }
 
@@ -343,7 +347,7 @@ html, body {
   color: #fff;
   font-family: var(--display);
   font-weight: 700;
-  font-size: 40px;
+  font-size: 35px;
   cursor: pointer;
   box-shadow: 0 6px 0 rgba(0,0,0,0.18);
 }
@@ -407,6 +411,12 @@ html { -webkit-text-size-adjust: 100%; }
     max-width: 1140px;
     border-radius: clamp(16px, 3vw, 43px);
   }
+  .hero__banner-mob {
+    display: block;
+  }
+  .hero__banner-desk {
+    display: none;
+  }
   /* Título estilizado: bloco de 623x313 escalado por JS (--title-scale) */
   .hero__title {
     position: relative;       /* mantém o contexto dos textos absolutos */
@@ -416,6 +426,10 @@ html { -webkit-text-size-adjust: 100%; }
     flex: 0 0 auto;
   }
 
+  .hero__title img{
+    max-width: 270px;
+  }
+
   .hero__subtitle {
     position: static;
     left: auto; top: auto;
@@ -423,8 +437,10 @@ html { -webkit-text-size-adjust: 100%; }
     max-width: 880px;
     padding: 0 8px;
     font-size: clamp(26px, 6.4vw, 64px);
-    line-height: 1.08;
-    margin: 35px auto;
+    line-height: 1.08;    
+    margin: 0 auto 10px auto;
+    font-size: 16px;    
+    max-width: 300px;
   }
 
   /* ---------- Passos em fluxo ---------- */
@@ -435,8 +451,9 @@ html { -webkit-text-size-adjust: 100%; }
     padding: 0 6px;
     display: flex;
     flex-direction: column;
-    gap: clamp(16px, 4vw, 30px);
+    gap: 12px;
     margin-bottom: 40px;
+    max-width: 280px;
   }
   .step { display: flex; align-items: center; gap: clamp(12px, 3vw, 24px); }
   .step__num,
@@ -447,7 +464,7 @@ html { -webkit-text-size-adjust: 100%; }
     width: auto;
   }
   .step__num {
-    font-size: clamp(40px, 11vw, 96px);
+    font-size: 36px;
     line-height: 1;
     flex: 0 0 auto;
     min-width: 1.1em;
@@ -456,6 +473,7 @@ html { -webkit-text-size-adjust: 100%; }
   .step__text {
     font-size: clamp(24px, 6vw, 64px);
     line-height: 1.06 !important;
+    font-size: 15px;
   }
 
   /* ---------- Categorias fluidas ---------- */
@@ -526,6 +544,7 @@ html { -webkit-text-size-adjust: 100%; }
     gap: clamp(10px, 2.5vw, 18px);
     margin-top: clamp(24px, 5vw, 40px);
     margin-top: -3.75rem;
+    padding: 0;
   }
   .btn-download {
     flex: 1 1 0;
@@ -536,6 +555,7 @@ html { -webkit-text-size-adjust: 100%; }
     padding: clamp(12px, 3vw, 22px) clamp(8px, 2vw, 16px);
     font-size: clamp(15px, 3.6vw, 40px);
     border-radius: 50px;
+    gap: 4px
   }
   .btn-download svg { width: clamp(20px, 4vw, 34px); height: auto; }
 
