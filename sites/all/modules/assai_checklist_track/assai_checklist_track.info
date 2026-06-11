@@ -1,0 +1,4 @@
+name = Assaí Checklist Tracking
+description = Expõe rotas Drupal para monitoramento (track/report) do Guia do Comerciante.
+core = 7.x
+package = Assaí

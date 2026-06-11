@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * @file
+ * Rotas Drupal para o monitoramento do checklist.
+ *
+ * Necessário porque /checklist/ é um alias de página do Drupal,
+ * não o caminho físico do tema em sites/all/themes/assai_checklist/.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function assai_checklist_track_menu() {
+  $items = array();
+
+  $items['checklist/track'] = array(
+    'title' => 'Checklist track',
+    'page callback' => 'assai_checklist_track_endpoint',
+    'access callback' => 'assai_checklist_track_access',
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['checklist/report'] = array(
+    'title' => 'Checklist report',
+    'page callback' => 'assai_checklist_track_report',
+    'access callback' => 'assai_checklist_track_access',
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Acesso público (report protege por chave em config.php).
+ */
+function assai_checklist_track_access() {
+  return TRUE;
+}
+
+/**
+ * Caminho do tema assai_checklist.
+ */
+function assai_checklist_track_theme_path() {
+  return drupal_get_path('theme', 'assai_checklist');
+}
+
+/**
+ * Endpoint POST de eventos.
+ */
+function assai_checklist_track_endpoint() {
+  drupal_page_is_cacheable(FALSE);
+  $theme = assai_checklist_track_theme_path();
+  if (!$theme) {
+    return drupal_not_found();
+  }
+  require $theme . '/track/track.php';
+  drupal_exit();
+}
+
+/**
+ * Relatório HTML de monitoramento.
+ */
+function assai_checklist_track_report() {
+  drupal_page_is_cacheable(FALSE);
+  $theme = assai_checklist_track_theme_path();
+  if (!$theme) {
+    return drupal_not_found();
+  }
+  require $theme . '/track/report.php';
+  drupal_exit();
+}
