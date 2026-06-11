@@ -13,8 +13,7 @@ $theme = base_path() . path_to_theme();
 <div class="stage">
 
   <!-- ============ HERO ============ -->
-  <header class="hero">
-    <img class="hero__logo" src="<?php print $theme; ?>/images/logo-assai.png" alt="Assaí Atacadista" width="190" height="190" />
+  <header class="hero">   
 
     <img class="hero__banner hero__banner-mob" src="<?php print $theme; ?>/images/banner-top-mob.png" alt="Não perca mais vendas e abasteça seu negócio com a lista certa!" />
     <img class="hero__banner hero__banner-desk" src="<?php print $theme; ?>/images/banner-top-desk.png" alt="Não perca mais vendas e abasteça seu negócio com a lista certa!" />

@@ -426,10 +426,6 @@ html { -webkit-text-size-adjust: 100%; }
     flex: 0 0 auto;
   }
 
-  .hero__title img{
-    max-width: 270px;
-  }
-
   .hero__subtitle {
     position: static;
     left: auto; top: auto;
@@ -439,8 +435,8 @@ html { -webkit-text-size-adjust: 100%; }
     font-size: clamp(26px, 6.4vw, 64px);
     line-height: 1.08;    
     margin: 0 auto 10px auto;
-    font-size: 16px;    
-    max-width: 300px;
+    font-size: 40px;
+    max-width: 70%;
   }
 
   /* ---------- Passos em fluxo ---------- */
@@ -453,7 +449,6 @@ html { -webkit-text-size-adjust: 100%; }
     flex-direction: column;
     gap: 12px;
     margin-bottom: 40px;
-    max-width: 280px;
   }
   .step { display: flex; align-items: center; gap: clamp(12px, 3vw, 24px); }
   .step__num,
@@ -464,7 +459,7 @@ html { -webkit-text-size-adjust: 100%; }
     width: auto;
   }
   .step__num {
-    font-size: 36px;
+    font-size: 86px;
     line-height: 1;
     flex: 0 0 auto;
     min-width: 1.1em;
@@ -473,7 +468,7 @@ html { -webkit-text-size-adjust: 100%; }
   .step__text {
     font-size: clamp(24px, 6vw, 64px);
     line-height: 1.06 !important;
-    font-size: 15px;
+    font-size: 36px;
   }
 
   /* ---------- Categorias fluidas ---------- */
@@ -526,7 +521,7 @@ html { -webkit-text-size-adjust: 100%; }
     padding: clamp(10px, 2.5vw, 14px) clamp(14px, 3vw, 28px);
     border-radius: clamp(12px, 2vw, 19px);
     margin-top: clamp(10px, 2.4vw, 14px);
-    padding-left: 54px;
+    padding-left: 99px;
   }
   .cat__hint { font-size: clamp(14px, 3vw, 24px); }
 
